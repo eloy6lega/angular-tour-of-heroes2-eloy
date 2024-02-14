@@ -1,0 +1,25 @@
+<h2>{{titulo}}</h2>
+<br><hr><br>
+<h2>DAW Alumnos</h2>
+<ul class="alumnos">
+    <li *ngFor="let alumno of alumnos">
+        <button [class.selected]="alumno === selectedAlumno" type="button" (click)="onSelect(alumno)">
+            <span class="badge"> {{alumno.id}} </span>
+            <span class="name"> - </span>
+            <span class="name"> {{alumno.name}} </span>
+            <!-- <span class="name"> {{alumno.media}} </span> 
+            <span class="name"> {{alumno.foto}} </span>-->
+        </button>
+    </li>
+</ul>
+
+<div *ngIf="selectedAlumno">
+    <h2> Detalles de: {{selectedAlumno.name | uppercase}} </h2>
+    <div>
+        <h3>Id: {{selectedAlumno.id}}</h3>
+        <h2>Nombre: {{selectedAlumno.name}}</h2>
+        <h3>Nota media: {{selectedAlumno.media}}</h3>
+        <h3>Foto de perfil:</h3><br>
+        <img src="{{selectedAlumno.foto}}" alt="{{selectedAlumno.name}}" style="width: 500px; height: 500px;">
+    </div>
+</div>
